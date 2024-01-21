@@ -19,7 +19,6 @@ function generateTimeBlocks() {
       timeBlock.attr("data-hour", hour);
       textAreaCol.attr("data-hour", hour);
 
-
 //Color-code time blocks based on past, present and future
 if (hour < currentHour) {
     textAreaCol.addClass("past");
@@ -35,15 +34,31 @@ if (hour < currentHour) {
 }
 
 //Function to handle click on save button and save event to local storage
+function handleSaveButtonClick() {
+    $(".saveBtn").on("click", function() {
+      var hour = $(this).siblings(".description").data("hour");
+      var eventText = $(this).siblings(".description").val();
 
-
-
-
+      // Save event in local storage
+      localStorage.setItem("event_" + hour, eventText);
+    });
+  }
 
 // Function to load events from local storage and populate time blocks
+function loadEvents() {
+    $(".description").each(function() {
+      var hour = $(this).data("hour");
+      var storedEvent = localStorage.getItem("event_" + hour);
 
-
-
-
+      if (storedEvent) {
+        $(this).val(storedEvent);
+      }
+    });
+  }
 
 // Call functions to initialize the planner
+displayCurrentDay();
+generateTimeBlocks();
+handleSaveButtonClick();
+loadEvents();
+});
