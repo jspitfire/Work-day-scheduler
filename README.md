@@ -1,6 +1,7 @@
 # Work-day-scheduler
 
 ## A simple calendar application that allows a user to save events for each hour of the day. This app features dynamically updated HTML and CSS powered by jQuery. It makes use of the Day.js library.
+App: https://jspitfire.github.io/Work-day-scheduler/
 
 ![image](https://github.com/jspitfire/Work-day-scheduler/assets/152102332/494e6143-72f4-4a3b-aa8d-9468fddfc36a)
 
